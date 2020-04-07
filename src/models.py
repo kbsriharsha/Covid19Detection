@@ -9,6 +9,7 @@ This program provides all the different models used in the training purposes
 # Importing all the necessary libraies and functions
 import numpy as np
 import pandas as pd
+import keras
 from keras.layers import Activation, Convolution2D, Dropout, Conv2D, Dense
 from keras.layers import AveragePooling2D, BatchNormalization
 from keras.layers import GlobalAveragePooling2D
@@ -126,7 +127,7 @@ def mini_xception(input_shape, num_classes, regularization = l2(0.01)):
     return model
 
 
-def mobilenet(input_shape = (224,224,3), num_classes):
+def mobilenet(num_classes, input_shape = (224,224,3)):
     """
     This function creates the mobilenet model based on the transfer learning
     concepts
@@ -138,10 +139,16 @@ def mobilenet(input_shape = (224,224,3), num_classes):
     """
     img_input = Input(input_shape)
 
-    model = keras.applications.mobilenet.MobileNet(include_top=False, weights= 'imagenet', input_shape = input_shape)
+    #model = keras.applications.mobilenet.MobileNet(include_top=False, weights= 'imagenet', input_shape = (224,224,3))
+    model = keras.applications.mobilenet.MobileNet(include_top=False, weights= 'imagenet', input_shape= input_shape)
     x = keras.layers.GlobalAveragePooling2D()(model.output)
-    new_output = keras.layers.Dense(num_classes, activation='softmax')(new_output)
-    out_put = keras.engine.training.Model(model.inputs, new_output)
+    output = keras.layers.Dense(num_classes, activation='softmax')(x)
+    #out_put = keras.engine.training.Model(model.inputs, new_output)
 
-    model = Model(img_input, output)
+    model = Model(model.input, output)
     return model
+
+if __name__ == "__main__":
+    mobilenet(num_classes = 2)
+    #mini_xception((48, 48, 3), 5, regularization = l2(0.01))
+    print("Builded Model")
