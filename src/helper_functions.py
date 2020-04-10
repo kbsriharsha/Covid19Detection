@@ -11,6 +11,8 @@ This program provides all the necessary preprocessing libraries
 import pandas as pd
 import cv2
 import numpy as np
+import os
+
 
 def resize(img, width, height, interpolation=cv2.INTER_AREA):
     '''
@@ -34,3 +36,17 @@ def images_from_folder(folder, label = 1):
             images.append(image)
             labels.append(label)
     return images, labels
+
+
+def preprocess_input(x, v2=True):
+    '''
+    This function preprocess the image input (normaliztion)
+    '''
+    x = x.astype('float32')
+    x = x / 255.0
+    '''
+    if v2:
+        x = x - 0.5
+        x = x * 2.0
+    '''
+    return x

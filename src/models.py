@@ -147,6 +147,7 @@ def mobilenet(num_classes, input_shape = (224,224,3)):
     return model
 
 if __name__ == "__main__":
+    '''
     #mobilenet(num_classes = 2)
     #mini_xception((48, 48, 3), 5, regularization = l2(0.01))
-    #print("Builded Model")
+    '''
