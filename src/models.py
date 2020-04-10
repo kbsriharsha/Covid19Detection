@@ -139,16 +139,14 @@ def mobilenet(num_classes, input_shape = (224,224,3)):
     """
     img_input = Input(input_shape)
 
-    #model = keras.applications.mobilenet.MobileNet(include_top=False, weights= 'imagenet', input_shape = (224,224,3))
     model = keras.applications.mobilenet.MobileNet(include_top=False, weights= 'imagenet', input_shape= input_shape)
     x = keras.layers.GlobalAveragePooling2D()(model.output)
     output = keras.layers.Dense(num_classes, activation='softmax')(x)
-    #out_put = keras.engine.training.Model(model.inputs, new_output)
 
     model = Model(model.input, output)
     return model
 
 if __name__ == "__main__":
-    mobilenet(num_classes = 2)
+    #mobilenet(num_classes = 2)
     #mini_xception((48, 48, 3), 5, regularization = l2(0.01))
-    print("Builded Model")
+    #print("Builded Model")
