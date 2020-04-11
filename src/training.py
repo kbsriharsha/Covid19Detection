@@ -77,12 +77,16 @@ model.compile(
 )
 model.summary()
 
-'''
+# Parameters
+# lr = 1e-2
+# batch size = 24
+
 # Model Fitting
-model.fit_generator(data_generator.flow(trainX,trainY,16),
-                        steps_per_epoch=len(trainX) / 16,
-                        epochs = 36,
+model.fit_generator(data_generator.flow(trainX,trainY,24),
+                        steps_per_epoch=len(trainX) / 24,
+                        epochs = 50,
                         validation_data=(testX, testY),
-	                    validation_steps=len(testX) //,
+	                    validation_steps=len(testX) / 24,
                         verbose=1)
-'''
+
+# 
