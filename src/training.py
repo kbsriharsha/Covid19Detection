@@ -80,11 +80,11 @@ model.summary()
 # Parameters
 # lr = 1e-2
 # batch size = 24
-'''
+
 # Model Fitting
-model.fit_generator(data_generator.flow(trainX,trainY,24),
+history = model.fit_generator(data_generator.flow(trainX,trainY,24),
                         steps_per_epoch=len(trainX) / 24,
-                        epochs = 50,
+                        epochs = 15,
                         validation_data=(testX, testY),
 	                    validation_steps=len(testX) / 24,
                         verbose=1)
@@ -94,5 +94,24 @@ train_score = model.evaluate(x_train, y_train, verbose=0)
 print(train_score)
 test_score = model.evaluate(x_test, y_test, verbose=0)
 print(test_score)
-'''
-#
+
+# summarize history for accuracy
+plt.plot(history.history['acc'])
+plt.plot(history.history['val_acc'])
+plt.title('model accuracy')
+plt.ylabel('accuracy')
+plt.xlabel('epoch')
+plt.legend(['train', 'test'], loc='upper left')
+plt.show()
+
+# summarize history for loss
+plt.plot(history.history['loss'])
+plt.plot(history.history['val_loss'])
+plt.title('model loss')
+plt.ylabel('loss')
+plt.xlabel('epoch')
+plt.legend(['train', 'test'], loc='upper left')
+plt.show()
+
+# Saving the final model
+model.save("/".join(os.getcwd().split("/")[:-1] + ["model/"])+"covidmodel.h5")
