@@ -65,7 +65,7 @@ data_generator = ImageDataGenerator(
 # Model Build
 model = mod.mobilenet(num_classes = 2)
 # Freezing all the layers except the last 23 layers
-for layer in model.layers[:-23]:
+for layer in model.layers[:70]:
         layer.trainable = False
 print(model.layers)
 
@@ -80,7 +80,7 @@ model.summary()
 # Parameters
 # lr = 1e-2
 # batch size = 24
-
+'''
 # Model Fitting
 model.fit_generator(data_generator.flow(trainX,trainY,24),
                         steps_per_epoch=len(trainX) / 24,
@@ -89,4 +89,10 @@ model.fit_generator(data_generator.flow(trainX,trainY,24),
 	                    validation_steps=len(testX) / 24,
                         verbose=1)
 
-# 
+# Model Evaluation
+train_score = model.evaluate(x_train, y_train, verbose=0)
+print(train_score)
+test_score = model.evaluate(x_test, y_test, verbose=0)
+print(test_score)
+'''
+#
