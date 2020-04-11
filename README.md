@@ -13,7 +13,8 @@ The important step in this project is the data collection process. JHU has a git
 As the dataset is pretty small (200 samples; 100 positive and 100 negative), we used transfer learning for this purpose. WE have selected mobilenet as pretrained model and retrained the last 23 layers to made it useful for this purpose. 
 
 ### Model Dynamics
-![Image of Dynamics](https://github.com/kbsriharsha/Covid19Detection/blob/master/project_dynamics/Acc_%26_Loss.png =120x120)
+![Image of Dynamics](https://github.com/kbsriharsha/Covid19Detection/blob/master/project_dynamics/Acc_%26_Loss.png)
+<img src="ttps://github.com/kbsriharsha/Covid19Detection/blob/master/project_dynamics/Acc_%26_Loss.png" width="200" height="400" />
 
 ### References
 - John Hopkins University Data Github https://github.com/ieee8023/covid-chestxray-dataset
