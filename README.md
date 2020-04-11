@@ -12,10 +12,13 @@ The important step in this project is the data collection process. JHU has a git
 ### Model Description
 As the dataset is pretty small (200 samples; 100 positive and 100 negative), we used transfer learning for this purpose. WE have selected mobilenet as pretrained model and retrained the last 23 layers to made it useful for this purpose. 
 
+### Model Dynamics
+
+
 ### References
 - John Hopkins University Data Github https://github.com/ieee8023/covid-chestxray-dataset
 - Kaggle Competetion dataset https://www.kaggle.com/paultimothymooney/chest-xray-pneumonia
 - Keras: https://keras.io/
-
+- Adrian Research Article: https://www.pyimagesearch.com/2020/03/16/detecting-covid-19-in-x-ray-images-with-keras-tensorflow-and-deep-learning/
 
 
