@@ -1,0 +1,11 @@
+pip:
+	numpy
+  scikit-learn
+  pandas
+	matplotlib
+	scipy
+	keras
+	pillow
+	opencv-python
+	h5py
+  tensorflow
